@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const imageRoute = require('./api/ImageUpload')
 const contactRoute = require('./api/ContactUs')
+const projectIdeaRouter = require('./api/ProjectIdeas')
 const path = require('path');
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(bodyParser.json())
 app.use('/static', express.static('public'))
 app.use("/upload",imageRoute)
 app.use("/contact-us",contactRoute)
+app.use('/project-ideas', projectIdeaRouter)
 app.get("/test",(req, res)=>{
     res.send("Hello!")
 })

@@ -5,7 +5,6 @@ const {ContactUs} = require('../models/ContactUs');
 
 const router = express.Router()
 
-
 var transporter = nodemailer.createTransport({
     service: "gmail",
     auth:{
@@ -18,7 +17,7 @@ var transporter = nodemailer.createTransport({
 
 })
 
-router.post("/add", (req, res, next)=>{
+router.post("/", (req, res, next)=>{
     const {full_name, email, subject, address, message} = req.body
     const newReq = new ContactUs(req.body)
     newReq.save()
@@ -55,6 +54,18 @@ router.post("/add", (req, res, next)=>{
         })
     })
    
+})
+
+router.get("/",(req, res, next)=>{
+    ContactUs.find()
+    .then(results=>{
+        res.json(results)
+    })
+    .catch(err=>{
+        res.json({
+            error: err
+        })
+    })
 })
 
 module.exports = router
