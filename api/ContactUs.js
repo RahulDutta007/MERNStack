@@ -24,7 +24,7 @@ router.post("/add", (req, res, next)=>{
     newReq.save()
     .then(result=>{
         var mailOptions = {
-            from: "support@tributeglobal.org",
+            from: "iamsouvik.cs@gmail.com",
             to:email,
             subject:"Thank you for contacting us",
             text:"We will get back to you soon. One of our representatives will assist you."
