@@ -31,6 +31,8 @@ app.use('/static', express.static('public'))
 app.use("/upload",imageRoute)
 app.use("/contact-us",contactRoute)
 app.use('/project-ideas', projectIdeaRouter)
+app.use('/membership',require('./Routes/Membership'))
+app.use('/file',require('./Routes/ImageShow'))
 app.get("/test",(req, res)=>{
     res.send("Hello!")
 })
