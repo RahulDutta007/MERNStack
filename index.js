@@ -1,8 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
 const imageRoute = require('./api/ImageUpload')
+const contactRoute = require('./api/ContactUs')
+const projectIdeaRouter = require('./api/ProjectIdeas')
 const path = require('path');
 const app = express();
+
+mongoose.connect("mongodb://localhost/TWF")
+mongoose.Promise = global.Promise
 
 app.use((req, res, next ) => {
     res.header("Access-Control-Allow-Origin","*") // we can put a specific webpage or website instead of * to allow access to apis
@@ -23,11 +29,14 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 app.use('/static', express.static('public'))
 app.use("/upload",imageRoute)
-
+app.use("/admin/contact-us",contactRoute)
+app.use('/admin/project-ideas', projectIdeaRouter)
+app.use('/admin/membership',require('./Routes/Membership'))
+app.use('/file',require('./Routes/ImageShow'))
 app.get("/test",(req, res)=>{
     res.send("Hello!")
 })
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });
 
