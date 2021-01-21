@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const {ProjectIdeas} = require('../models/ProjectIdea');
-
 const router = express.Router()
-
 router.post("/",(req, res, next)=>{
     const newReq = new ProjectIdeas(req.body)
     newReq.save()

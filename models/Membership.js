@@ -24,8 +24,6 @@ const MemberShipSchema = new mongoose.Schema({
     ImageOriginalName:{ type: String, },
     license:{ type: String, },
     dateAdded:{type:Date,default:Date.now,},
-
-
     
 })
 

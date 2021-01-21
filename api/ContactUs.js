@@ -28,7 +28,6 @@ router.post("/", (req, res, next)=>{
             subject:"Thank you for contacting us.",
             text:"We will get back to you soon. One of our representatives will assist you."
         }
-        
         transporter.sendMail(mailOptions, (err, info)=>{
             if(err)
             {
@@ -37,8 +36,6 @@ router.post("/", (req, res, next)=>{
                 })
             }
             else{
-    
-    
                 console.log("Email sent "+info.response)
                 res.status(201).json({
                     message:"Query registered and Email sent successfully"

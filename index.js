@@ -23,8 +23,6 @@ app.use((req, res, next ) => {
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-
-
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 app.use('/static', express.static('public'))
