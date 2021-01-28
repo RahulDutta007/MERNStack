@@ -8,8 +8,8 @@ const router = express.Router()
 var transporter = nodemailer.createTransport({
     service: "gmail",
     auth:{
-        user:"iamsouvik.cs@gmail.com",
-        pass:"bbekfgirczoyygrj"
+        user:"info.twf.ho@gmail.com",
+        pass:"bxmreyzttckcomnn"
         //pass:"qwdf45tY"
         //pass:"bbekfgirczoyygrj"
         //pass:"bbekfgirczoyygrj"
@@ -23,7 +23,7 @@ router.post("/", (req, res, next)=>{
     newReq.save()
     .then(result=>{
         var mailOptions = {
-            from: "iamsouvik.cs@gmail.com",
+            from: "info.twf.ho@gmail.com",
             to:email,
             subject:"Thank you for contacting us.",
             text:"We will get back to you soon. One of our representatives will assist you."

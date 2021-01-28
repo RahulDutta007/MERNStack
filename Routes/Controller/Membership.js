@@ -5,8 +5,8 @@ const {Membership} = require('../../models/Membership');
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth:{
-      user:"iamsouvik.cs@gmail.com",
-      pass:"bbekfgirczoyygrj"
+      user:"info.twf.ho@gmail.com",
+      pass:"bxmreyzttckcomnn"
       //pass:"qwdf45tY"
       //pass:"bbekfgirczoyygrj"
       //pass:"bbekfgirczoyygrj"
@@ -22,7 +22,7 @@ var transporter = nodemailer.createTransport({
         const save = await newReq.save();
         console.log("Data saved")
         var mailOptions = {
-          from: "iamsouvik.cs@gmail.com",
+          from: "info.twf.ho@gmail.com",
           to:req.body.email,
           subject:"Greetings from Tribute Welfare.",
           text:"Thank you for submitting your request. We will get back to you soon."
